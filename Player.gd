@@ -25,7 +25,7 @@ func _physics_process(delta):
 	#	velocity.y += gravity * delta
 	if Input.is_action_just_pressed("Attack") and attacking == false:
 		Attack()
-		velocity.x = 200
+		
 		
 	Flipper()
 	# Handle Jump.
@@ -54,8 +54,11 @@ func _on_timer_timeout():
 
 func Flipper():
 	if Input.is_action_just_pressed("Left"):
-		spawnerlocation.x = -11
+		#spawnerlocation.x = -11
 		$Sprite2D.flip_h=true
 	if Input.is_action_just_pressed("Right"):
-		spawnerlocation.x = 11
+		#spawnerlocation.x = 11
 		$Sprite2D.flip_h=false
+
+
+#this is a test to check out github.
