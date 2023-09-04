@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://bi88morc2xqb8"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_t8ikt"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_anf7r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_mwqkj"]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_t8ikt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_anf7r")
+
+[node name="Spawner" type="Node2D" parent="."]
+position = Vector2(11, 0)
+scale = Vector2(1, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(5.96046e-08, 0)
+scale = Vector2(17, 30)
+texture = SubResource("PlaceholderTexture2D_mwqkj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
