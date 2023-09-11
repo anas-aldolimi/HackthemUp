@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvj7i5fsrbp71"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_3v6dl"]
+lifetime_randomness = 1.0
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+particle_flag_disable_z = true
+spread = 15.0
+initial_velocity_max = 20.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+amount = 61
+process_material = SubResource("ParticleProcessMaterial_3v6dl")
+lifetime = 2.0
+fixed_fps = 60
+visibility_rect = Rect2(-1, -1, 2, 49.3667)

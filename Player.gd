@@ -1,7 +1,7 @@
 extends CharacterBody2D
 @onready var attack_scene = load("res://Scenes/sword_range.tscn")
 const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -400.0
 var Damage = 5
 var attacking = false
 @onready var spawnerlocation = $Spawner.position.x
@@ -18,13 +18,20 @@ func Attack():
 	
 
 func _physics_process(delta):
-	# Add the gravity.
+	# this code is used to reset the scene.
+	if Input.is_key_pressed(KEY_R):
+		get_tree().reload_current_scene()
+	
+	# This segment is used to add gravity
+	# if the player is not on the floor it will drag the player down. 
 	if not is_on_floor():
 		velocity.y += gravity * delta
+	
+	# this Segment is used to call the attack function.
 	if Input.is_action_just_pressed("Attack") and attacking == false:
 		Attack()
-		
-		
+	
+	# this Segment is used to call the character flipper function
 	Flipper()
 	# Handle Jump.
 	if (Input.is_action_pressed("Jump")) and is_on_floor():
@@ -52,11 +59,11 @@ func _on_timer_timeout():
 
 func Flipper():
 	if Input.is_action_pressed("Left"):
-		$Spawner.position.x = -12
+		$Spawner.position.x = -16
 		$Sprite2D.flip_h=true
 	if Input.is_action_pressed("Right"):
-		$Spawner.position.x = 12
+		$Spawner.position.x = 16
 		$Sprite2D.flip_h=false
 
 
-#this is a test to check out github.
+# this is a test to check out github.

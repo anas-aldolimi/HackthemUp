@@ -13,7 +13,7 @@ script = ExtResource("1_t8ikt")
 shape = SubResource("CapsuleShape2D_anf7r")
 
 [node name="Spawner" type="Node2D" parent="."]
-position = Vector2(12, 0)
+position = Vector2(16, -1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.6875, 1.90735e-06)
@@ -21,7 +21,7 @@ scale = Vector2(0.416016, 0.576087)
 texture = ExtResource("2_ncojp")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 0.2
 one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
